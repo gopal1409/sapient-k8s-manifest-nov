@@ -1,0 +1,17 @@
+#####
+##kubectl apply -f nameoftheyaml file. 
+###all the yaml will be executed from top to bottom and left to right
+####as we know that we are going to interact with my k8s cluster so we need invoke the pod api first
+###the api version of pod is v1
+apiVersion: v1
+kind: Pod ###when i want to deploy my container image pod is the name of the api
+metadata:
+  name: kucc1 ###using metada name we will define the pod name
+spec: ##when i create a pod i need define pod specification. 
+  containers: #3inside the pod we are running the container
+  - name: nginx ##this is the name of the container
+    image: nginx ###this is the image which is going to be deployment inside your pod
+    ##by default it go to hub.docker.com and download the image
+    ports: 
+    - containerPort: 80 ###container por from where it is coming
+    ###application.properties
