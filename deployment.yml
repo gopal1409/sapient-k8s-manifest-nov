@@ -1,18 +1,23 @@
-apiVersion: apps/v1
-kind: Deployment
+###i apply the deployment file using kubectl apply -f nameoftheyaml file. 
+apiVersion: apps/v1 ##so we invoke the deployment api
+kind: Deployment ###the name of the api
 metadata:
-  name: myapp
-spec:
-  selector:
+  name: myapp ##to identify the deployment name we use metadata name. and the name of deployment
+spec: ##we are creating deployment so we need provide specification of the deployment
+  replicas: 2 ##inside the deployment we are creating two pods
+  ##this two pod need to be mapped with your deployment. 
+  selector: #selector is a map of key value
     matchLabels:
-      app: myapp
-  template:
+      app: myapp ###they have created labels against those two pod
+  template: ##inside the pod we want to deploy an container image.
+  ####how we are going to deploy similar inside inside the pod 
+  ####template
     metadata:
       labels:
-        app: myapp
+        app: myapp1
     spec:
       containers:
-      - name: myapp
+      - name: gopal
         image: nginx 
       
         ports:
