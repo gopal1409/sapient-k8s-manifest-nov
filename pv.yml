@@ -10,6 +10,9 @@ spec:
   accessModes:
     - ReadWriteOnce #readonly #readwritemany
   persistentVolumeReclaimPolicy: Recycle
-  storageClassName: slow
+  storageClassName: mysql-data
+  ###
+  #local:
+   #path: /mnt/data
   hostPath:
     path: /mnt/data
