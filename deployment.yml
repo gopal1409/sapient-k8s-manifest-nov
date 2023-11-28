@@ -18,7 +18,7 @@ spec: ##we are creating deployment so we need provide specification of the deplo
     spec:
       containers:
       - name: gopal
-        image: nginx 
+        image: nginx:1.16.1
       
         ports:
         - containerPort: 80

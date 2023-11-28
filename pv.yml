@@ -1,0 +1,15 @@
+####create a persistnet volume of 10Gi with readwriteonce and hostpath will be /mnt/data
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-claim
+spec:
+  capacity:
+    storage: 10Gi #we are cresing storage of 10Gi. thin provisioing but i am using 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce #readonly #readwritemany
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: slow
+  hostPath:
+    path: /mnt/data
