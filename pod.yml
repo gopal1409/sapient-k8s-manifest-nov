@@ -15,3 +15,4 @@ spec: ##when i create a pod i need define pod specification.
     ports: 
     - containerPort: 80 ###container por from where it is coming
     ###application.properties
+##3indentation happen in yaml two spaces
