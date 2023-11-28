@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass 
+metadata: 
+  name: standard
+provisoner: kubernetes.io/aws-ebs : this will create pv 
+parameters:
+  type: gp2
+  storage: 10Gi

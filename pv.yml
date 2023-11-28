@@ -9,10 +9,13 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce #readonly #readwritemany
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Recycle #immediate waitforfirstconsumer
   storageClassName: mysql-data
   ###
   #local:
    #path: /mnt/data
   hostPath:
     path: /mnt/data
+##3pv is required 
+#nfs hostpath and localvolume
+#emptyDir(dynamic directory) any of the worker node
