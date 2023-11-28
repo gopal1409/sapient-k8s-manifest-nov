@@ -14,7 +14,7 @@ spec: ##we are creating deployment so we need provide specification of the deplo
   ####template
     metadata:
       labels:
-        app: myapp1
+        app: myapp
     spec:
       containers:
       - name: gopal
