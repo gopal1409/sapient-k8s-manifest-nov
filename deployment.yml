@@ -6,7 +6,7 @@ metadata:
 spec: ##we are creating deployment so we need provide specification of the deployment
   replicas: 2 ##inside the deployment we are creating two pods
   ##this two pod need to be mapped with your deployment. 
-  selector: #selector is a map of key value
+  selector: #selector is a map of key value it is like matchexpression
     matchLabels:
       app: myapp ###they have created labels against those two pod
   template: ##inside the pod we want to deploy an container image.
