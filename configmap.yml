@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: usermanagement-db-script
 data:
-  mysql_usermgmt.sql: |
+  mysql_usermgmt.sql: |-
     DROP DATABASE IF EXISTS usermgmt;
     CREATE DATABASE usermgmt;
