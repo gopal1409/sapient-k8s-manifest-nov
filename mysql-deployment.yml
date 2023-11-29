@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql 
+  template:
+    metadata:
+      labels:
+        app: mysql 
+    spec:
+      containers:
+      - name: mysql 
+        image: mysql:5.6 
+        ###when i launch this container the password will come from secret manager of k8s
+        env:
+          - name: MYSQL_ROOT_PASSWORD ##this is the env varabile you can find it from container defination
+            valueFrom: ###from where it will pick up the password
+              secretKeyRef:
+                key: password 
+                name: mysql-db-password ##this is the name of the secret
+        ports:
+        - containerPort: 3306
+        ##this is iniside the container
+        volumeMounts:
+          - name: gopal-data ##this is container volume path
+            mountPath: /var/lib/mysql ##this path need to be mapped with pvc
+          - name: gopal-configmap
+            mountPath: /docker-entrypoint-initdb.d
+      volumes: 
+        - name: gopal-data ##same name is have given in volume path so that the mapping will work
+          persistentVolumeClaim:
+            claimName: task-pv-claim
+        - name: gopal-config 
+          configMap:
+            name: usermanagement-db-script
