@@ -34,6 +34,6 @@ spec:
         - name: gopal-data ##same name is have given in volume path so that the mapping will work
           persistentVolumeClaim:
             claimName: task-pv-claim
-        - name: gopal-config 
+        - name: gopal-configmap
           configMap:
             name: usermanagement-db-script
